@@ -19,6 +19,7 @@ public class Main {
 
     /**
      * Функция выполняющая N раз метод add
+     * @param list используемый список
      */
     private static void addList(List list) {
         for (int i = 0; i < N; i++) {
@@ -28,6 +29,7 @@ public class Main {
 
     /**
      * Функция выполняющая N раз метод indexOf
+     * @param list используемый список
      */
     private static void indexOfList(List list) {
         for (int i = 0; i < N; i++) {
@@ -37,6 +39,7 @@ public class Main {
 
     /**
      * Функция выполняющая N раз метод delete
+     * @param list используемый список
      */
     private static void deleteList(List list) {
         for (int i = 0; i < N; i++) {
@@ -46,6 +49,7 @@ public class Main {
 
     /**
      * Функция выполняющая N раз метод get
+     * @param list используемый список
      */
     private static void getList(List list) {
         for (int i = 0; i < N; i++) {
