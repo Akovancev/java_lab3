@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * Класс сравнения эффективности основных операций ArrayList и LinkedList
@@ -19,74 +18,38 @@ public class Main {
     private static long [][] arr = new long[2][countMethods];
 
     /**
-     * Функция выполняющая N раз метод add коллекции ArrayList
+     * Функция выполняющая N раз метод add
      */
-    private static void addArray() {
+    private static void addList(List list) {
         for (int i = 0; i < N; i++) {
-            Alist.add(i);
+            list.add(i);
         }
     }
 
     /**
-     * Функция выполняющая N раз метод add коллекции LinkedList
+     * Функция выполняющая N раз метод indexOf
      */
-    private static void addLinked() {
+    private static void indexOfList(List list) {
         for (int i = 0; i < N; i++) {
-            Llist.add(i);
+            list.indexOf(i);
         }
     }
 
     /**
-     * Функция выполняющая N раз метод indexOf коллекции ArrayList
+     * Функция выполняющая N раз метод delete
      */
-    private static void indexOfArray() {
+    private static void deleteList(List list) {
         for (int i = 0; i < N; i++) {
-            Alist.indexOf(i);
+            list.remove(i);
         }
     }
 
     /**
-     * Функция выполняющая N раз метод indexOf коллекции LinkedList
+     * Функция выполняющая N раз метод get
      */
-    private static void indexOfLinked() {
+    private static void getList(List list) {
         for (int i = 0; i < N; i++) {
-            Llist.indexOf(i);
-        }
-    }
-
-    /**
-     * Функция выполняющая N раз метод delete коллекции ArrayList
-     */
-    private static void deleteArray() {
-        for (int i = 0; i < N; i++) {
-            Alist.remove(i);
-        }
-    }
-
-    /**
-     * Функция выполняющая N раз метод delete коллекции LinkedList
-     */
-    private static void deleteLinked() {
-        for (int i = 0; i < N; i++) {
-            Llist.remove(i);
-        }
-    }
-
-    /**
-     * Функция выполняющая N раз метод get коллекции ArrayList
-     */
-    private static void getArray() {
-        for (int i = 0; i < N; i++) {
-            Alist.get(i);
-        }
-    }
-
-    /**
-     * Функция выполняющая N раз метод get коллекции LinkedList
-     */
-    private static void getLinked() {
-        for (int i = 0; i < N; i++) {
-            Llist.get(i);
+            list.get(i);
         }
     }
 
@@ -95,35 +58,35 @@ public class Main {
      */
     public static void timer() {
         long startTime = System.currentTimeMillis();
-        addArray();
+        addList(Alist);
         long endTime = System.currentTimeMillis();
         arr[0][0] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        addLinked();
+        addList(Llist);
         endTime = System.currentTimeMillis();
         arr[1][0] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        deleteArray();
+        deleteList(Alist);
         endTime = System.currentTimeMillis();
         arr[0][1] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        deleteLinked();
+        deleteList(Llist);
         endTime = System.currentTimeMillis();
         arr[1][1] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        getArray();
+        getList(Alist);
         endTime = System.currentTimeMillis();
         arr[0][2] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        getLinked();
+        getList(Llist);
         endTime = System.currentTimeMillis();
         arr[1][2] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        indexOfArray();
+        indexOfList(Alist);
         endTime = System.currentTimeMillis();
         arr[0][3] = endTime-startTime;
         startTime = System.currentTimeMillis();
-        indexOfLinked();
+        indexOfList(Llist);
         endTime = System.currentTimeMillis();
         arr[1][3] = endTime-startTime;
     }
@@ -148,8 +111,8 @@ public class Main {
      * Функция main, основная функция программы
      */
     public static void main(String[] args) {
-        addArray();
-        addLinked();
+        addList(Alist);
+        addList(Llist);
         timer();
         print();
     }
