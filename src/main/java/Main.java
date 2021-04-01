@@ -14,7 +14,7 @@ public class Main {
     /** Поле количество выполненных операций*/
     private static int N = 10000;
     /** Поле количество проверяемых методов*/
-    private static int countMethods = 3;
+    private static int countMethods = 4;
     /** Поле массив для хранения результатов*/
     private static long [][] arr = new long[2][countMethods];
 
@@ -33,6 +33,24 @@ public class Main {
     private static void addLinked() {
         for (int i = 0; i < N; i++) {
             Llist.add(i);
+        }
+    }
+
+    /**
+     * Функция выполняющая N раз метод indexOf коллекции ArrayList
+     */
+    private static void indexOfArray() {
+        for (int i = 0; i < N; i++) {
+            Alist.indexOf(i);
+        }
+    }
+
+    /**
+     * Функция выполняющая N раз метод indexOf коллекции LinkedList
+     */
+    private static void indexOfLinked() {
+        for (int i = 0; i < N; i++) {
+            Llist.indexOf(i);
         }
     }
 
@@ -100,13 +118,21 @@ public class Main {
         getLinked();
         endTime = System.currentTimeMillis();
         arr[1][2] = endTime-startTime;
+        startTime = System.currentTimeMillis();
+        indexOfArray();
+        endTime = System.currentTimeMillis();
+        arr[0][3] = endTime-startTime;
+        startTime = System.currentTimeMillis();
+        indexOfLinked();
+        endTime = System.currentTimeMillis();
+        arr[1][3] = endTime-startTime;
     }
 
     /**
      * Функция вывода полученных данных в консоль
      */
     public static void print() {
-        System.out.print("             add  delete get\n");
+        System.out.print("             add  delete get indexOf\n");
         System.out.print("ArrayList:   ");
         for (int i = 0; i < countMethods; i++) {
             System.out.print(arr[0][i] + "ms   ");
