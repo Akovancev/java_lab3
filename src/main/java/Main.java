@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.function.Function;
 
 public class Main {
     private static ArrayList Alist = new ArrayList();
     private static LinkedList Llist = new LinkedList();
     private static int N = 1000;
-    private static long [][] arr = new long[2][3];
+    private static int countMethods = 3;
+    private static long [][] arr = new long[2][countMethods];
 
     private static void addArray() {
         for (int i = 0; i < N; i++) {
@@ -68,7 +68,23 @@ public class Main {
         arr[1][2] = endTime-startTime;
     }
 
+    public static void print() {
+        System.out.print("             add  delete get\n");
+        System.out.print("ArrayList:   ");
+        for (int i = 0; i < countMethods; i++) {
+            System.out.print(arr[0][i] + "ms   ");
+        }
+        System.out.print("\nLinkedList:  ");
+        for (int i = 0; i < countMethods; i++) {
+            System.out.print(arr[1][i] + "ms   ");
+        }
+        System.out.println("\nCount of operation: " + N);
+    }
+
     public static void main(String[] args) {
+        addArray();
+        addLinked();
         timer();
+        print();
     }
 }
